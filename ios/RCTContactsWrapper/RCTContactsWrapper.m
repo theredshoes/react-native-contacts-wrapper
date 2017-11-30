@@ -149,8 +149,8 @@ RCT_EXPORT_METHOD(getEmail:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseR
             CNPhoneNumber *phone = ((CNLabeledValue *)p).value;
             NSString *label = ((CNLabeledValue *)p).label;
             label = [CNLabeledValue localizedStringForLabel:label];
-            [dict setValue:phone.stringValue forKey:@"phone"];
-            [dict setValue:label forKey:@"phone_label"];
+            [dict setValue:phone.stringValue forKey:@"number"];
+            [dict setValue:label forKey:@"number_type"];
             [jsPhoneNumbers addObject:dict];
           }
         [contactData setValue:jsPhoneNumbers forKey:@"phones"];
@@ -165,8 +165,8 @@ RCT_EXPORT_METHOD(getEmail:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseR
           CNLabeledValue *email = ((CNLabeledValue *)e).value;
           NSString *label = ((CNLabeledValue *)e).label;
           label = [CNLabeledValue localizedStringForLabel:label];
-          [dict setValue:email forKey:@"email"];
-          [dict setValue:label forKey:@"email_label"];
+          [dict setValue:email forKey:@"address"];
+          [dict setValue:label forKey:@"address_type"];
           [jsEmails addObject:dict];
         }
         [contactData setValue:jsEmails forKey:@"emails"];
